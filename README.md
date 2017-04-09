@@ -20,7 +20,7 @@ Please read documentation [http://admin.cleanuitemplate.com/livepreview/v/vertic
 
 ### Git Repository ###
 
-Please send purchase code and GitHub username (or email) for invitation to support@cleanuitemplate.com for get access to GitHub repository.
+Please send purchase code and your email to support@cleanuitemplate.com for get access to GIT repository.
 
 ### Support ###
 
