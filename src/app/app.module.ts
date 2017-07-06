@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { routing }  from './app.routes';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MenuLeftComponent } from './menu-left/menu-left.component';
 
 
 
@@ -14,11 +15,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    MenuLeftComponent
   ],
   imports: [
     BrowserModule,
-    routing
+    routing,
+    NgbModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
