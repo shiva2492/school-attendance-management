@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenuLeftComponent } from './menu-left/menu-left.component';
+import { TopHeaderComponent } from './top-header/top-header.component';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RegisterComponent } from './auth/register/register.component';
+import {AuthService} from './auth/auth.service';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyCr4j_Vo2gnQrTYTsIwsscOSAZj3UAuoSQ",
@@ -30,7 +32,8 @@ export const firebaseConfig = {
     LoginComponent,
     DashboardComponent,
     MenuLeftComponent,
-    RegisterComponent
+    RegisterComponent,
+    TopHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ export const firebaseConfig = {
     AngularFireAuthModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
