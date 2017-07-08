@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenuLeftComponent } from './menu-left/menu-left.component';
+import { TopHeaderComponent } from './top-header/top-header.component';
 
 
 
@@ -16,7 +17,8 @@ import { MenuLeftComponent } from './menu-left/menu-left.component';
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    MenuLeftComponent
+    MenuLeftComponent,
+    TopHeaderComponent
   ],
   imports: [
     BrowserModule,
