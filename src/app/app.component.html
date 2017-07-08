@@ -13,9 +13,10 @@
 </nav> -->
 <app-top-header></app-top-header>
 <app-menu-left></app-menu-left>
-<div class="container">
+<div class="container header_margin">
   <div class="row">
     <!-- routing here -->
+    <toaster-container [toasterconfig]="toasterConfig"></toaster-container>
     <router-outlet></router-outlet>
   </div>
 </div>
