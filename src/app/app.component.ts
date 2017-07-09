@@ -9,7 +9,7 @@ import { ToasterComponent } from '../app/util/toaster/toaster.component';
 })
 export class AppComponent implements OnInit {
  @ViewChild(ToasterComponent) toaster: ToasterComponent;
- 
+   isAuthinticated:boolean;
     constructor(){
     //setInterval( () => { console.log(this.toaster.getToasterConfig()) },2000);
     }
@@ -18,6 +18,18 @@ export class AppComponent implements OnInit {
   firebase.initializeApp({
     apiKey: "AIzaSyCh-jT1pzTDSeIPtHhLlZFFv8b1UyraE10",
     authDomain: "ssms-57461.firebaseapp.com"
+
+  })
+
+  firebase.auth().onAuthStateChanged(user=>{
+  if(user){
+    this.isAuthinticated=true;
+  }
+  else{
+   this.isAuthinticated=false;
+
+  }
+
 
   })
  

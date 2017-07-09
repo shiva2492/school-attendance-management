@@ -50,7 +50,7 @@ export const firebaseConfig = {
     ToasterModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,ToasterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
