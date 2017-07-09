@@ -11,8 +11,8 @@
     </div>
   </div>
 </nav> -->
-<app-top-header></app-top-header>
-<app-menu-left></app-menu-left>
+<app-top-header *ngIf="isAuthinticated"></app-top-header>
+<app-menu-left *ngIf="isAuthinticated"></app-menu-left>
 <div class="container header_margin">
   <div class="row">
     <!-- routing here -->
