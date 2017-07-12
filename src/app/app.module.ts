@@ -8,6 +8,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {AuthService} from './auth/auth.service';
+import {AuthGuard} from './auth/guard.service';
+import { SharedService } from './shared.service';
+
 import {ToasterModule, ToasterService, ToasterConfig} from 'angular2-toaster';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { myComponents, myDirectives, myPipes} from './primtivesList';
@@ -43,7 +46,7 @@ export const firebaseConfig = {
     ToasterModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthService,ToasterService],
+  providers: [AuthService,AuthGuard,SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

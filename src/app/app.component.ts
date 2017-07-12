@@ -1,6 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as firebase from 'firebase';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { ToasterComponent } from '../app/util/toaster/toaster.component';
+import { AuthService } from './auth/auth.service';
+import { SharedService } from './shared.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,39 +13,49 @@ import { ToasterComponent } from '../app/util/toaster/toaster.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
- @ViewChild(ToasterComponent) toaster: ToasterComponent;
-   isAuthinticated:boolean;
-    constructor(){
+ 
+   @ViewChild(ToasterComponent) toaster: ToasterComponent;  
+   
+   public isAuthinticated: boolean = false;
+
+    constructor(private auth: AuthService,private af:AngularFireAuth,private service: SharedService){
     //setInterval( () => { console.log(this.toaster.getToasterConfig()) },2000);
-    
-    }
+   // this.auth.initializeFirebase();
+
+     if(auth.user)
+      this.isAuthinticated = true;
+     else
+      this.isAuthinticated = false;
+      console.log('user----',auth.user);
+      console.log('authenticated---',this.isAuthinticated)
+      this.service.onMainEvent.subscribe(
+      (onMain) => {
+         this.isAuthinticated = onMain;
+      }
+   );
+   }
 
   ngOnInit(){
-    firebase.initializeApp({
-      apiKey: "AIzaSyCh-jT1pzTDSeIPtHhLlZFFv8b1UyraE10",
-      authDomain: "ssms-57461.firebaseapp.com",
-      databaseURL: "https://ssms-57461.firebaseio.com",
-      projectId: "ssms-57461",
-      storageBucket: "ssms-57461.appspot.com",
-      messagingSenderId: "645121434486"
+    
 
-    })
+    // firebase.auth().onAuthStateChanged(user=>{
+    //   if(user){
+    //     this.isAuthinticated=true;
+    //   }
+    //   else{
+    //   this.isAuthinticated=false;
 
-    firebase.auth().onAuthStateChanged(user=>{
-      if(user){
-        this.isAuthinticated=true;
-      }
-      else{
-      this.isAuthinticated=false;
-
-      }
+    //   }
 
 
-    })
+    // })
  
   }
 
+  logoutHappened(){
+    this.auth.signOut();
+    this.isAuthinticated = false;
+    console.log('logout'); 
+  }
 
-  
-  title = 'app';
 }

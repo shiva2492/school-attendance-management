@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToasterComponent } from '../../util/toaster/toaster.component';
 import { ToasterModule, ToasterService, ToasterConfig } from 'angular2-toaster';
 import {AuthService} from '../auth.service';
+import { SharedService } from '../../shared.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ username: any;
 password: any;
 toasterInstance: any;
 
-  constructor(public router: Router,private authService:AuthService,toasterService:ToasterService) {
+  constructor(public router: Router,private authService:AuthService,toasterService:ToasterService,private service: SharedService) {
 
     this.toasterInstance = new ToasterComponent(toasterService);
   }
@@ -27,13 +28,15 @@ login(username, password) {
     let myThis=this;
     this.authService.signIn(username,password)
     .then(function(){
+       
        myThis.toasterInstance.ToasterSuccess('success', 'Success', 'Login Successful');
-        myThis.router.navigate(['']);
+       myThis.router.navigate(['']);
     })
     .catch(function(){
      myThis.toasterInstance.ToasterSuccess('error', 'error', 'Wrong Email or Password!');
 
     })
+    this.service.onMainEvent.emit(true);
   }
 
   signup(event) {
@@ -41,10 +44,7 @@ login(username, password) {
     this.router.navigate(['signup']);
   }
 
-  signOut(){
-  this.authService.signOut();
-
-  }
+  
 
 }
 

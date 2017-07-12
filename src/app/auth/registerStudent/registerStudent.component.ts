@@ -31,7 +31,7 @@ export class RegisterStudentComponent implements OnInit {
     this.authService.signUpStudent(email, password)
       .then(function (user) {
         myThis.toasterInstance.ToasterSuccess('success', 'Success', 'Sudent is successfully registered..!');
-        setTimeout(() => { myThis.router.navigate(['']) }, 2000);
+        myThis.router.navigate(['']);
       }).catch(function (error) {
         myThis.toasterInstance.ToasterSuccess('error', 'Error', 'Error in Registering Student');
       });

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthService } from '../auth/auth.service';
 declare var $: any;
 declare var jQuery: any;
 declare var autosize: any;
@@ -8,11 +8,17 @@ declare var Chartist: any;
 
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-console',
+  templateUrl: './console.component.html',
+  styleUrls: ['./console.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class ConsoleComponent implements OnInit {
+
+  constructor(auth: AuthService){
+
+    console.log('inside console with user loggedIn----',auth.isAuthinticated);
+
+  }
 
 ngOnInit() {
 
