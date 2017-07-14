@@ -5,6 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { ToasterComponent } from '../app/util/toaster/toaster.component';
 import { AuthService } from './auth/auth.service';
 import { SharedService } from './shared.service';
+import 'rxjs/add/operator/map';
 
 
 @Component({
@@ -16,40 +17,34 @@ export class AppComponent implements OnInit {
  
    @ViewChild(ToasterComponent) toaster: ToasterComponent;  
    
-   public isAuthinticated: boolean = false;
+   public isAuthinticated: boolean;
 
     constructor(private auth: AuthService,private af:AngularFireAuth,private service: SharedService){
     //setInterval( () => { console.log(this.toaster.getToasterConfig()) },2000);
    // this.auth.initializeFirebase();
 
-     if(auth.user)
-      this.isAuthinticated = true;
-     else
-      this.isAuthinticated = false;
-      console.log('user----',auth.user);
-      console.log('authenticated---',this.isAuthinticated)
+     
+       console.log('app constructor----');
+      // console.log('authenticated---',this.isAuthinticated)
       this.service.onMainEvent.subscribe(
       (onMain) => {
+        console.log('app event subscribed----');
          this.isAuthinticated = onMain;
-      }
-   );
+      });
    }
 
   ngOnInit(){
+       console.log('app ngonit----');
     
-
-    // firebase.auth().onAuthStateChanged(user=>{
-    //   if(user){
-    //     this.isAuthinticated=true;
-    //   }
-    //   else{
-    //   this.isAuthinticated=false;
-
-    //   }
-
-
-    // })
- 
+    this.af.authState.map(auth => {
+            if (!(auth)) {
+              console.log('app authstate false----');              
+            this.isAuthinticated = false;
+          } else {
+            console.log('app authstate false----');
+            this.isAuthinticated = true;
+            }
+        });
   }
 
   logoutHappened(){

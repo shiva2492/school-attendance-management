@@ -11,6 +11,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class TopHeaderComponent implements OnInit {
 @Output() userUpdated = new EventEmitter();
+
   constructor(private router: Router,private auth: AuthService) {
 
     }

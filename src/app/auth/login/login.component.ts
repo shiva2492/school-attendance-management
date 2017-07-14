@@ -27,16 +27,19 @@ toasterInstance: any;
 login(username, password) {
     let myThis=this;
     this.authService.signIn(username,password)
-    .then(function(){
-       
+    .then(function(user){
+      
        myThis.toasterInstance.ToasterSuccess('success', 'Success', 'Login Successful');
        myThis.router.navigate(['']);
+       if(user)
+        myThis.service.onMainEvent.emit(true);
     })
-    .catch(function(){
+    .catch(function(error){
+      console.log(error);
      myThis.toasterInstance.ToasterSuccess('error', 'error', 'Wrong Email or Password!');
 
     })
-    this.service.onMainEvent.emit(true);
+    
   }
 
   signup(event) {

@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToasterComponent } from '../../util/toaster/toaster.component';
 import { ToasterModule, ToasterService, ToasterConfig } from 'angular2-toaster';
+import { SharedService } from '../../shared.service';
 
 @Component({
   selector: 'app-register-student',
@@ -13,9 +14,10 @@ import { ToasterModule, ToasterService, ToasterConfig } from 'angular2-toaster';
 export class RegisterStudentComponent implements OnInit {
 
   toasterInstance: any;
-  constructor(private authService: AuthService, public router: Router, private toasterService: ToasterService) {
+  constructor(private authService: AuthService, public router: Router, private toasterService: ToasterService,private service: SharedService) {
 
     this.toasterInstance = new ToasterComponent(toasterService);
+    this.service.onMainEvent.emit(true);
   }
 
   ngOnInit() {
@@ -30,7 +32,7 @@ export class RegisterStudentComponent implements OnInit {
     console.log(email);
     this.authService.signUpStudent(email, password)
       .then(function (user) {
-        myThis.toasterInstance.ToasterSuccess('success', 'Success', 'Sudent is successfully registered..!');
+        myThis.toasterInstance.ToasterSuccess('success', 'Success', 'Student is successfully registered..!');
         myThis.router.navigate(['']);
       }).catch(function (error) {
         myThis.toasterInstance.ToasterSuccess('error', 'Error', 'Error in Registering Student');
