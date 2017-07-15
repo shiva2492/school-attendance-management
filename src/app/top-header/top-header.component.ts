@@ -10,7 +10,7 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./top-header.component.css']
 })
 export class TopHeaderComponent implements OnInit {
-@Output() userUpdated = new EventEmitter();
+//@Output() userUpdated = new EventEmitter();
 
   constructor(private router: Router,private auth: AuthService) {
 
@@ -20,11 +20,11 @@ export class TopHeaderComponent implements OnInit {
 
   }
 
-  logout(){
-  this.auth.signOut();
-  this.userUpdated.emit();
-  this.router.navigate(['login']);
+  // logout(){
+  // this.auth.signOut();
+  // this.userUpdated.emit();
+  // this.router.navigate(['login']);
 
-  }
+  // }
 
 }

@@ -6,5 +6,6 @@ import { Injectable, EventEmitter} from '@angular/core';
 
 @Injectable()
 export class SharedService {
-  onMainEvent: EventEmitter<any> = new EventEmitter();
+  onMenuEvent: EventEmitter<any> = new EventEmitter();
+  onHeaderEvent: EventEmitter<any> = new EventEmitter();
 }
