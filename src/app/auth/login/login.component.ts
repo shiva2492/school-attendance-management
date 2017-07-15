@@ -6,6 +6,7 @@ import {AuthService} from '../auth.service';
 import { SharedService } from '../../shared.service';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,6 +21,8 @@ toasterInstance: any;
   constructor(public router: Router,private authService:AuthService,toasterService:ToasterService,private service: SharedService) {
 
     this.toasterInstance = new ToasterComponent(toasterService);
+    this.service.onMenuEvent.emit(false);
+    this.service.onHeaderEvent.emit(false);
   }
   ngOnInit() {
   }
@@ -31,8 +34,6 @@ login(username, password) {
       
        myThis.toasterInstance.ToasterSuccess('success', 'Success', 'Login Successful');
        myThis.router.navigate(['']);
-       if(user)
-        myThis.service.onMainEvent.emit(true);
     })
     .catch(function(error){
       console.log(error);

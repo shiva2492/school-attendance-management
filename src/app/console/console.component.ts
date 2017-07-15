@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { SharedService } from '../shared.service';
+import { Router } from '@angular/router';
+
 declare var $: any;
 declare var jQuery: any;
 declare var autosize: any;
@@ -15,10 +17,18 @@ declare var Chartist: any;
 })
 export class ConsoleComponent implements OnInit {
 
-  constructor(auth: AuthService,private service: SharedService){
+  constructor(private router: Router,private auth: AuthService,private service: SharedService){
 
     console.log('inside console with user loggedIn----',auth.isAuthinticated);
-     this.service.onMainEvent.emit(true);
+     this.service.onMenuEvent.emit(true);
+     this.service.onHeaderEvent.emit(true);
+  }
+
+   logout(){
+  this.auth.signOut();
+  //this.userUpdated.emit();
+  this.router.navigate(['login']);
+
   }
 
 ngOnInit() {

@@ -16,7 +16,8 @@ export class RegisterStaffComponent implements OnInit {
   toasterInstance: any;
   
   constructor(private authService: AuthService,private service: SharedService,public router: Router, private toasterService: ToasterService) {
-    this.service.onMainEvent.emit(false);
+      this.service.onMenuEvent.emit(false);
+     this.service.onHeaderEvent.emit(true);
    }
 
   ngOnInit() {

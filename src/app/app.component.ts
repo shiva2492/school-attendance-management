@@ -26,12 +26,20 @@ export class AppComponent implements OnInit {
       
        
       // console.log('authenticated---',this.isAuthinticated)
-      this.service.onMainEvent.subscribe(
-      (onMain) => {
+      this.service.onMenuEvent.subscribe(
+      (onMenu) => {
         console.log('app event subscribed----');
-         this.isAuthinticated = onMain;
-         this.Currentroute = onMain; 
+         this.isAuthinticated = onMenu;
+         //this.Currentroute = onHeader; 
       });
+
+      this.service.onHeaderEvent.subscribe(
+      (onHeader) => {
+        console.log('app event subscribed----');
+         //this.isAuthinticated = onMenu;
+         this.Currentroute = onHeader; 
+      });
+
    }
 
   ngOnInit(){
@@ -53,6 +61,7 @@ export class AppComponent implements OnInit {
   logoutHappened(){
     this.auth.signOut();
     this.isAuthinticated = false;
+    this.Currentroute = false;
     console.log('logout'); 
   }
 
