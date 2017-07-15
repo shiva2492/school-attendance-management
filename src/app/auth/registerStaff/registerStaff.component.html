@@ -1,71 +1,322 @@
- <div class="wrapper wrapper-full-page">
-  <div class="full-page login-page" filter-color="black" data-image="assets/login.jpeg">
-    <div class="content">
-                <div class="container">
- <div class="row">
-                        <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
-                            <form (ngSubmit)="onStudentRegister(f)" #f="ngForm" ngNativeValidate>
-                                <div class="card card-login">
-                                    <div class="card-header text-center" data-background-color="rose">
-                                        <h4 class="card-title">Staff Register</h4>
-                                    </div>
-                                    <div class="card-content">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="material-icons">face</i>
-                                            </span>
-                                            <div class="form-group label-floating is-empty">
-                                                <input type="text"
-                                                 class="form-control" 
-                                                 name="username" 
-                                                 id="username" 
-                                                 placeholder="Username" 
-                                                 ngModel
-                                                 required
-                                                 >
-                                            <span class="material-input"></span></div>
-                                        </div>
-                                            <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="material-icons">email</i>
-                                            </span>
-                                          <div class="form-group label-floating is-empty">
-                                                <input type="email" class="form-control" name="email" id="email" placeholder="Email" ngModel required>
-                                            <span class="material-input"></span></div>
-                                        </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="material-icons">lock_outline</i>
-                                            </span>
-                                            <div class="form-group label-floating is-empty">
-                                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" ngModel>
-                                            <span class="material-input"></span></div>
-                                        </div>
-                                          <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="material-icons">lock_outline</i>
-                                            </span>
-                                            <div class="form-group label-floating is-empty">
-                                                <input type="password" class="form-control" name="password" id="password" placeholder="Confirm Password" ngModel>
-                                            <span class="material-input"></span></div>
-                                        </div>
-                                    </div>
-                                     <div class="input-group">
-                                         <span class="input-group-addon">
-                                           <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="">
-                                      I agree to the terms and conditions
-                                      </label>
-                                         </span>
-                                     </div>
-                                    <div class="footer text-center">
-                                       <button type="submit" class="btn btn-rounded btn-primary mr-2 mb-2">Register</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="wrapper wrapper-full-page">
+        <div class="full-page login-page" filter-color="black" data-image="assets/login.jpeg">
+        <div class="content">
+        <div class="container">
+        <div class="row">
+        <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+        <form (ngSubmit)="onStaffRegister(f)" #f="ngForm" ngNativeValidate>
+        <div class="card card-login">
+        <div class="card-header text-center" data-background-color="rose">
+        <h4 class="card-title">Staff Register</h4>
+        </div>
+        <div class="card-content">
+
+        <div class="input-group">
+        <span class="input-group-addon">
+        First Name
+        </span>    
+        <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">First Name</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        name="first_name" 
+        id="first_name" 
+        placeholder="First Name" 
+        ngModel
+        required
+        >
+        </div>
+        </div>
+        </div>
+
+        <div class="input-group">
+        <span class="input-group-addon">
+         Last Name
+        </span>  
+        <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Last Name</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        name="first_name" 
+        id="first_name" 
+        placeholder="First Name" 
+        ngModel
+        required
+        >
+        </div>
+        </div>
+        </div>
+
+        <div class="input-group">
+        <span class="input-group-addon">
+        Gender
+        </span>  
+        <fieldset class="form-group row">
+      <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Gender</label>-->
+        <div class="col-sm-10">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="gridRadios3" id="gridRadios3" value="option1" checked>
+            Male
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">  
+            <input type="radio" class="form-check-input" name="gridRadios3" id="gridRadios3" value="option2" >
+            Female
+          </label>
+        </div> 
+        </div>
+        </fieldset>
+        </div>
+
+         <div class="input-group">
+        <span class="input-group-addon">
+        NRIC/FIN
+        </span> 
+        <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">NRIC/FIN</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        name="first_name" 
+        id="first_name" 
+        placeholder="First Name" 
+        ngModel
+        required
+        >
+        </div>
+        </div>
+         </div>
+
+          <div class="input-group">
+        <span class="input-group-addon">
+        Email
+        </span> 
+        <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Email</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        name="first_name" 
+        id="first_name" 
+        placeholder="First Name" 
+        ngModel
+        required
+        >
+        </div>
+        </div>
+          </div>
+
+           <div class="input-group">
+        <span class="input-group-addon">
+        Contact number
+        </span> 
+        <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Contact number</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        name="first_name" 
+        id="first_name" 
+        placeholder="First Name" 
+        ngModel
+        required
+        >
+        </div>
+        </div>
+           </div>
+
+       <div class="input-group">
+        <span class="input-group-addon">
+        Status
+        </span>     
+       <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Status</label>-->
+        <div class="col-sm-10">
+            <select class="custom-select">
+            <option value="CIT" selected>CIT</option>
+            <option value="1"> PR</option>
+            <option value="2">EP</option>
+            <option value="3">SPASS</option>
+            <option value="3">SP</option>
+            <option value="3">LOC</option>
+            <option value="3">PRC/WP</option>
+            </select>
+        </div>
+        </div> 
+       </div>
+
+       <div class="input-group">
+        <span class="input-group-addon">
+        Job-Type
+        </span> 
+       <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Job-Type</label>-->
+        <div class="col-sm-10">
+            <select class="custom-select">
+            <option value="Fulltime(LT)" selected>Fulltime(LT)</option>
+            <option value="1">Fulltime(ST)</option>
+            <option value="2">Parttime</option>
+            <option value="3">Weekend</option>
+            </select>
+        </div>
+        </div>
+       </div>
+
+       <div class="input-group">
+        <span class="input-group-addon">
+        Bank Name
+        </span> 
+         <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Bank Name</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        name="first_name" 
+        id="first_name" 
+        placeholder="First Name" 
+        ngModel
+        required
+        >
+        </div>
+        </div>
+       </div>
+
+
+       <div class="input-group">
+        <span class="input-group-addon">
+        Bank Account Number
+        </span> 
+         <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Bank Account Number</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        name="first_name" 
+        id="first_name" 
+        placeholder="First Name" 
+        ngModel
+        required
+        >
+        </div>
+        </div>
+       </div>
+
+       <div class="input-group">
+        <span class="input-group-addon">
+        Username
+        </span> 
+         <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Username</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        name="first_name" 
+        id="first_name" 
+        placeholder="First Name" 
+        ngModel
+        required
+        >
+        </div>
+        </div>
+       </div>
+
+        <div class="input-group">
+        <span class="input-group-addon">
+        Password
+        </span> 
+         <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Password</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        name="first_name" 
+        id="first_name" 
+        placeholder="First Name" 
+        ngModel
+        required
+        >
+        </div>
+        </div>
+        </div>
+
+        <div class="input-group">
+        <span class="input-group-addon">
+        Repeat Password
+        </span> 
+         <div class="form-group row">
+            <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Repeat Password</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        name="first_name" 
+        id="first_name" 
+        placeholder="First Name" 
+        ngModel
+        required
+        >
+        </div>
+        </div>
+        </div>
+        <!--<div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Last Name</label>
+        <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+        </div>
+        </div>-->
+
+        <!--<div class="input-group">
+        <span class="input-group-addon">
+        email
+        </span>
+        <div class="form-group label-floating is-empty">
+        <input type="email" class="form-control" name="email" id="email" placeholder="Email" ngModel required>
+        <span class="material-input"></span></div>
+        </div>
+        <div class="input-group">
+        <span class="input-group-addon">
+        <i class="material-icons">lock_outline</i>
+        </span>
+        <div class="form-group label-floating is-empty">
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password" ngModel>
+        <span class="material-input"></span></div>
+        </div>
+        <div class="input-group">
+        <span class="input-group-addon">
+        <i class="material-icons">lock_outline</i>
+        </span>
+        <div class="form-group label-floating is-empty">
+        <input type="password" class="form-control" name="password" id="password" placeholder="Confirm Password" ngModel>
+        <span class="material-input"></span></div>
+        </div>
+        </div>-->
+        <div class="input-group">
+        <span class="input-group-addon">
+        <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="">
+        I agree to the terms and conditions
+        </label>
+        </span>
+        </div>
+        <div class="footer text-center">
+        <button type="submit" class="btn btn-rounded btn-primary mr-2 mb-2">Register</button>
+        </div>
+        </div>
+        </div>
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>

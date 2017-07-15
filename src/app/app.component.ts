@@ -18,24 +18,27 @@ export class AppComponent implements OnInit {
    @ViewChild(ToasterComponent) toaster: ToasterComponent;  
    
    public isAuthinticated: boolean;
-
+   public Currentroute: boolean = false;
     constructor(private auth: AuthService,private af:AngularFireAuth,private service: SharedService){
     //setInterval( () => { console.log(this.toaster.getToasterConfig()) },2000);
    // this.auth.initializeFirebase();
 
-     
-       console.log('app constructor----');
+      
+       
       // console.log('authenticated---',this.isAuthinticated)
       this.service.onMainEvent.subscribe(
       (onMain) => {
         console.log('app event subscribed----');
          this.isAuthinticated = onMain;
+         this.Currentroute = onMain; 
       });
    }
 
   ngOnInit(){
-       console.log('app ngonit----');
-    
+    if(window.location.pathname != '/login')
+     this.Currentroute = true; 
+
+    console.log('app constructor----',this.Currentroute);
     this.af.authState.map(auth => {
             if (!(auth)) {
               console.log('app authstate false----');              

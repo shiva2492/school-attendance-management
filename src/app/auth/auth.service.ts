@@ -10,23 +10,7 @@ export class AuthService {
 public isAuthinticated:Observable<firebase.User>;
 user:any;
 
-
-
-    constructor(private af:AngularFireAuth){
-    // const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-    // if (!user) {
-    //     this.user = null;
-    //     unsubscribe();
-    // } else { 
-    //     this.user = user;
-    //     unsubscribe();
-    // }
-    // });         
-       
-    }
-
-  
-
+    constructor(private af:AngularFireAuth){   }
 
     signUpStaff(email: string, password: string) {
 
@@ -35,10 +19,11 @@ user:any;
     }
 
     signUpStudent(email: string, password: string) {
+
         return firebase.auth().createUserWithEmailAndPassword(email, password);
     }
 
-   //username: admin#gmail.com
+   //username: admin@gmail.com
    //password: password     
     signIn(email: string, password: string) {
 
@@ -50,7 +35,10 @@ user:any;
         return firebase.auth().signOut();
     }
 
-   getAuthenticated(): boolean { return this.user ? true : false; }
+   getAuthenticated(): boolean {
+        
+        return this.user ? true : false; 
+    }
 
 
 

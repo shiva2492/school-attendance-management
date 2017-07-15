@@ -11,9 +11,9 @@
     </div>
   </div>
 </nav> -->
-<app-top-header *ngIf="isAuthinticated" (userUpdated)="logoutHappened($event)"></app-top-header>
+<app-top-header *ngIf="Currentroute" (userUpdated)="logoutHappened($event)"></app-top-header>
 <app-menu-left *ngIf="isAuthinticated"></app-menu-left>
-<div class="container header_margin">
+<div class="container ">
   <div class="row">
     <!-- routing here -->
     <toaster-container [toasterconfig]="toasterConfig"></toaster-container>

@@ -17,7 +17,7 @@ export class RegisterStudentComponent implements OnInit {
   constructor(private authService: AuthService, public router: Router, private toasterService: ToasterService,private service: SharedService) {
 
     this.toasterInstance = new ToasterComponent(toasterService);
-    this.service.onMainEvent.emit(true);
+    this.service.onMainEvent.emit(false);
   }
 
   ngOnInit() {
