@@ -30,7 +30,7 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     ...myComponents,// array spread ... operator
-    ...myDirectives,
+    ...myDirectives,// remove new component from here and place them in primitiveList.ts
     ...myPipes
   ],
   imports: [
