@@ -4,7 +4,7 @@
         <div class="container">
         <div class="row">
         <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
-        <form (ngSubmit)="onStudentRegister(f)" #f="ngForm" ngNativeValidate>
+        <form (ngSubmit)="onStudentRegister(f)"  [formGroup]="studentForm" novalidate>
         <div class="card card-login">
         <div class="card-header text-center" data-background-color="rose">
         <h4 class="card-title">Student Register</h4>
@@ -19,14 +19,17 @@
         <!--<label for="inputEmail3" class="col-sm-6 col-form-label">First Name</label>-->
         <div class="col-sm-10">
         <input type="text"
-        class="form-control" 
-        name="first_name" 
-        id="first_name" 
-       
-        ngModel
+        class="form-control"
+        formControlName="firstName" 
+        placeholder="First Name" 
         required
         >
         </div>
+          <div
+           *ngIf="isFormSubmit && firstName.errors">
+        <p class="red-alert" *ngIf="firstName.errors.required">First Name is required</p>
+      </div>
+
         </div>
         </div>
 
@@ -39,13 +42,14 @@
         <div class="col-sm-10">
         <input type="text"
         class="form-control" 
-        name="first_name" 
-        id="first_name" 
-   
-        ngModel
-        required
+        placeholder="Last Name" 
+        formControlName="lastName"
         >
         </div>
+         <div
+           *ngIf="isFormSubmit && lastName.errors">
+        <p class="red-alert" *ngIf="lastName.errors.required">Last Name is required</p>
+      </div>
         </div>
         </div>
 
@@ -59,10 +63,7 @@
         <input type="text"
         class="form-control" 
         name="first_name" 
-        id="first_name" 
-        
-        ngModel
-        required
+        placeholder="First Name" 
         >
         </div>
         </div>
@@ -127,13 +128,14 @@
         <div class="col-sm-10">
         <input type="text"
         class="form-control" 
-        name="first_name" 
-        id="first_name" 
- 
-        ngModel
-        required
+        placeholder="Email" 
+        formControlName="email"
         >
         </div>
+         <div
+           *ngIf="isFormSubmit && email.errors">
+        <p class="red-alert" *ngIf="email.errors.required">Email is required</p>
+      </div>
         </div>
           </div>
 
@@ -146,11 +148,7 @@
         <div class="col-sm-10">
         <input type="text"
         class="form-control" 
-        name="first_name" 
-        id="first_name" 
-   
-        ngModel
-        required
+        placeholder="First Name" 
         >
         </div>
         </div>
@@ -166,13 +164,14 @@
         <div class="col-sm-10">
         <input type="text"
         class="form-control" 
-        name="first_name" 
-        id="first_name" 
-   
-        ngModel
-        required
+        placeholder="Username" 
+        formControlName="userName"
         >
         </div>
+         <div
+           *ngIf="isFormSubmit && userName.errors">
+        <p class="red-alert" *ngIf="userName.errors.required">Username is required</p>
+      </div>
         </div>
        </div>
 
@@ -185,13 +184,15 @@
         <div class="col-sm-10">
         <input type="text"
         class="form-control" 
-        name="first_name" 
-        id="first_name" 
-   
-        ngModel
-        required
+        placeholder="Password" 
+        formControlName="password"
         >
         </div>
+          <div class="red-alert"
+         *ngIf="isFormSubmit && password.errors">
+      <p *ngIf="password.errors.required">Password is required</p>
+      <p *ngIf="password.errors.minlength">Password must be 8 characters long, we need another {{password.errors.minlength.requiredLength - password.errors.minlength.actualLength}} characters </p>
+    </div>
         </div>
         </div>
 
@@ -203,14 +204,14 @@
             <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Repeat Password</label>-->
         <div class="col-sm-10">
         <input type="text"
-        class="form-control" 
-        name="first_name" 
-        id="first_name" 
-   
-        ngModel
-        required
+        class="form-control"  
+        placeholder="Repeat Password" 
+        formControlName="confirmPassword"
         >
         </div>
+        <!--<div class="red-alert">
+      <p *ngIf="isFormSubmit && !passwordMatch">Password misMatch</p>
+    </div>-->
         </div>
         </div>
         <!--<div class="form-group row">
