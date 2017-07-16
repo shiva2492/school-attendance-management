@@ -14,7 +14,7 @@ import { ToasterModule, ToasterService, ToasterConfig } from 'angular2-toaster';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { myComponents, myDirectives, myPipes } from './primtivesList';
 import { AppComponent } from './app.component';
-import { RegisterStaffComponent } from './auth/registerStaff/registerStaff.component';
+
 
 export const firebaseConfig = {
     apiKey: "AIzaSyCh-jT1pzTDSeIPtHhLlZFFv8b1UyraE10",
@@ -31,8 +31,7 @@ export const firebaseConfig = {
     AppComponent,
     ...myComponents,// array spread ... operator
     ...myDirectives,
-    ...myPipes,
-    RegisterStaffComponent
+    ...myPipes
   ],
   imports: [
     BrowserModule,
