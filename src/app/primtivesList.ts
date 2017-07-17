@@ -6,7 +6,7 @@ import { RegisterStudentComponent } from './auth/registerStudent/registerStudent
 import { ToasterComponent } from './util/toaster/toaster.component';
 import { RegisterStaffComponent } from './auth/registerStaff/registerStaff.component';
 import { StudentBookingComponent } from './student-booking/student-booking.component';
-
+import { StaffBookingComponent } from './staff-booking/staff-booking.component';
 
 export const myComponents = [
     
@@ -17,7 +17,8 @@ export const myComponents = [
     TopHeaderComponent,
     ToasterComponent,
     RegisterStaffComponent,
-    StudentBookingComponent
+    StudentBookingComponent,
+    StaffBookingComponent
     
 ];
 

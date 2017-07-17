@@ -16,6 +16,7 @@ import { myComponents, myDirectives, myPipes } from './primtivesList';
 import { AppComponent } from './app.component';
 
 
+
 export const firebaseConfig = {
     apiKey: "AIzaSyCh-jT1pzTDSeIPtHhLlZFFv8b1UyraE10",
     authDomain: "ssms-57461.firebaseapp.com",

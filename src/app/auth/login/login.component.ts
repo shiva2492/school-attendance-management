@@ -29,7 +29,7 @@ toasterInstance: any;
 
 login(username, password) {
     let myThis=this;
-    this.authService.signIn(username,password)
+    this.authService.signIn(username+'@gmail.com',password)
     .then(function(user){
       
        myThis.toasterInstance.ToasterSuccess('success', 'Success', 'Login Successful');

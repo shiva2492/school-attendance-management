@@ -1,7 +1,8 @@
 <div class="container">
 <div class="row card_top_margin">
             <div class="col-lg-4 col-md-6">
-                <div class="card card-product" data-count="7">
+                <a [routerLink]="['registerStudent']">
+                <div class="card card-product" data-count="7" >
                     <div class="card-image" data-header-animation="true">
                         <a [routerLink]="['registerStudent']">
                             <img class="img" src="../../assets/img/card-2.jpeg">
@@ -38,8 +39,10 @@
                         </div>
                     </div> -->
                 </div>
+                </a>
             </div>
             <div class="col-lg-4 col-md-6">
+                <a [routerLink]="['registerStaff']">
                 <div class="card card-product" data-count="5">
                     <div class="card-image" data-header-animation="true">
                         <a [routerLink]="['registerStaff']">
@@ -77,6 +80,7 @@
                         </div>
                     </div> -->
                 </div>
+                </a>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="card card-product" data-count="2">
@@ -122,7 +126,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="card card-product" data-count="7">
                     <div class="card-image" data-header-animation="true">
-                        <a href="#pablo">
+                        <a [routerLink]="['staffBooking']">
                             <img class="img" src="../../assets/img/card-2.jpeg">
                         </a>
                     </div>
@@ -142,7 +146,7 @@
                             </button>
                         </div>-->
                         <h4 class="card-title">
-                            <a href="#pablo">Staff Book In/Out</a>
+                            <a [routerLink]="['staffBooking']">Staff Book In/Out</a>
                         </h4>
                         <!--<div class="card-description">
                             Dummy description....
