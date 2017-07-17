@@ -1,22 +1,7 @@
-<!-- <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><a>Home</a></li>
-          <li><a>About</a></li>
-          <li><a>Logout</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav> -->
 <app-top-header *ngIf="Currentroute" ></app-top-header>
 <app-menu-left *ngIf="isAuthinticated"></app-menu-left>
-<div class="container ">
-  <div class="row">
+<div class="cat__content">
     <!-- routing here -->
     <toaster-container [toasterconfig]="toasterConfig"></toaster-container>
     <router-outlet ></router-outlet>
-  </div>
 </div>
