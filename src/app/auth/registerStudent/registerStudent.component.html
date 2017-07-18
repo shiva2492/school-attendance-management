@@ -10,152 +10,7 @@
         <h4 class="card-title">Student Register</h4>
         </div>
         <div class="card-content">
-
-        <div class="input-group">
-        <span class="input-group-addon">
-        First Name
-        </span>    
-        <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">First Name</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control"
-        formControlName="firstName" 
-        placeholder="First Name" 
-        required
-        >
-        </div>
-          <div
-           *ngIf="isFormSubmit && firstName.errors">
-        <p class="red-alert" *ngIf="firstName.errors.required">First Name is required</p>
-      </div>
-
-        </div>
-        </div>
-
-        <div class="input-group">
-        <span class="input-group-addon">
-         Last Name
-        </span>  
-        <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Last Name</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        placeholder="Last Name" 
-        formControlName="lastName"
-        >
-        </div>
-         <div
-           *ngIf="isFormSubmit && lastName.errors">
-        <p class="red-alert" *ngIf="lastName.errors.required">Last Name is required</p>
-      </div>
-        </div>
-        </div>
-
-        <div class="input-group">
-        <span class="input-group-addon">
-         Parent/Guardian Name
-        </span>  
-        <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Last Name</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="first_name" 
-        placeholder="First Name" 
-        >
-        </div>
-        </div>
-        </div>
-
-        <div class="input-group">
-        <span class="input-group-addon">
-        Gender
-        </span>  
-        <fieldset class="form-group row">
-      <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Gender</label>-->
-        <div class="col-sm-10">
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="gridRadios3" id="gridRadios3" value="option1" checked>
-            Male
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">  
-            <input type="radio" class="form-check-input" name="gridRadios3" id="gridRadios3" value="option2" >
-            Female
-          </label>
-        </div> 
-        </div>
-        </fieldset>
-        </div>
-
-        <div class="input-group">
-        <span class="input-group-addon">
-        Grade
-        </span>     
-       <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Status</label>-->
-        <div class="col-sm-10">
-            <select class="custom-select">
-            <option value="1" selected>1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="other">Others</option>
-            </select>
-        </div>
-        </div> 
-       </div>
-
-
-          <div class="input-group">
-        <span class="input-group-addon">
-        Email
-        </span> 
-        <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Email</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        placeholder="Email" 
-        formControlName="email">
-        </div>
-         <div
-           *ngIf="isFormSubmit && email.errors">
-        <p class="red-alert" *ngIf="email.errors.required">Email is required</p>
-        <p class="red-alert" *ngIf="email.errors.pattern">The email address must be similar to adcd@xyz.com</p>
-      </div>
-        </div>
-          </div>
-
-           <div class="input-group">
-        <span class="input-group-addon">
-        Contact number
-        </span> 
-        <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Contact number</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        placeholder="First Name" 
-        >
-        </div>
-        </div>
-           </div>
-
-
-       <div class="input-group">
+            <div class="input-group">
         <span class="input-group-addon">
         Username
         </span> 
@@ -215,6 +70,140 @@
     </div>
         </div>
         </div>
+        <div class="input-group">
+        <span class="input-group-addon">
+        First Name
+        </span>    
+        <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">First Name</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control"
+        formControlName="firstName" 
+        placeholder="First Name" 
+        required
+        >
+        </div>
+          <div
+           *ngIf="isFormSubmit && firstName.errors">
+        <p class="red-alert" *ngIf="firstName.errors.required">First Name is required</p>
+      </div>
+
+        </div>
+        </div>
+
+        <div class="input-group">
+        <span class="input-group-addon">
+         Last Name
+        </span>  
+        <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Last Name</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        placeholder="Last Name" 
+        formControlName="lastName"
+        >
+        </div>
+         <div
+           *ngIf="isFormSubmit && lastName.errors">
+        <p class="red-alert" *ngIf="lastName.errors.required">Last Name is required</p>
+      </div>
+        </div>
+        </div>
+         <div class="input-group">
+        <span class="input-group-addon">
+        Gender
+        </span>  
+        <fieldset class="form-group row">
+      <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Gender</label>-->
+        <div class="col-sm-10">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="gridRadios3" id="gridRadios3" value="option1" checked>
+            Male
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">  
+            <input type="radio" class="form-check-input" name="gridRadios3" id="gridRadios3" value="option2" >
+            Female
+          </label>
+        </div> 
+        </div>
+        </fieldset>
+        </div>
+
+
+        <div class="input-group">
+        <span class="input-group-addon">
+        School
+        </span>     
+       <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Status</label>-->
+        <div class="col-sm-10">
+            <select class="custom-select">
+            <option *ngFor="let school of schools">{{school}}</option>
+            </select>
+        </div>
+        </div> 
+       </div>
+
+
+        <div class="input-group">
+        <span class="input-group-addon">
+        Grade
+        </span>     
+       <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Status</label>-->
+        <div class="col-sm-10">
+            <select class="custom-select">
+            <option *ngFor="let grade of grades">{{grade}}</option>
+            </select>
+        </div>
+        </div> 
+       </div>
+
+
+          <div class="input-group">
+        <span class="input-group-addon">
+        Email
+        </span> 
+        <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Email</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        placeholder="Email" 
+        formControlName="email">
+        </div>
+         <div
+           *ngIf="isFormSubmit && email.errors">
+        <p class="red-alert" *ngIf="email.errors.required">Email is required</p>
+        <p class="red-alert" *ngIf="email.errors.pattern">The email address must be similar to adcd@xyz.com</p>
+      </div>
+        </div>
+          </div>
+
+           <div class="input-group">
+        <span class="input-group-addon">
+        Contact number
+        </span> 
+        <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Contact number</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        placeholder="First Name" 
+        >
+        </div>
+        </div>
+           </div>
+
+       
+
+
+   
         <!--<div class="form-group row">
         <label for="inputEmail3" class="col-sm-2 col-form-label">Last Name</label>
         <div class="dropdown">
@@ -254,6 +243,99 @@
         <span class="material-input"></span></div>
         </div>
         </div>-->
+       
+        <div class="input-group">
+        <span class="input-group-addon">
+        <b> Parent/Guardian Particulars</b>
+        </span> 
+        </div>
+        <div class="input-group">
+        <span class="input-group-addon">
+        Relationship to Student
+        </span>     
+       <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Status</label>-->
+        <div class="col-sm-10">
+            <select class="custom-select">
+            <option *ngFor="let relation of relationships">{{relation}}</option>
+            </select>
+        </div>
+        </div> 
+       </div>
+       <div class="input-group">
+        <span class="input-group-addon">
+        First Name
+        </span>    
+        <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">First Name</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control"
+        placeholder="First Name" 
+        required
+        >
+        </div>
+
+        </div>
+        </div>
+
+        <div class="input-group">
+        <span class="input-group-addon">
+         Last Name
+        </span>  
+        <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Last Name</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        placeholder="Last Name" 
+        >
+        </div>
+        </div>
+        </div>
+                   <div class="input-group">
+        <span class="input-group-addon">
+        Email(optional)
+        </span> 
+        <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Email</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        placeholder="Email">
+        </div>
+        </div>
+          </div>
+              <div class="input-group">
+        <span class="input-group-addon">
+        Contact number(Primary)
+        </span> 
+        <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Contact number</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        placeholder="First Name" 
+        >
+        </div>
+        </div>
+           </div>
+
+                 <div class="input-group">
+        <span class="input-group-addon">
+        Contact number(Secondary)
+        </span> 
+        <div class="form-group row">
+        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Contact number</label>-->
+        <div class="col-sm-10">
+        <input type="text"
+        class="form-control" 
+        placeholder="First Name" 
+        >
+        </div>
+        </div>
+           </div>
+
         <div class="input-group">
         <span class="input-group-addon">
         <label class="form-check-label">

@@ -31,6 +31,10 @@ import {
     SharedService 
   } from '../../shared.service';
 
+ import{
+StudentConstants
+ } from '../../config';  
+
 @Component({
   selector: 'app-register-student',
   templateUrl: './registerStudent.component.html',
@@ -48,12 +52,19 @@ export class RegisterStudentComponent implements OnInit {
   isFormSubmit:boolean;
   isPasswordMatch:boolean=true;
   toasterInstance: any;
+  schools:String[];
+  grades:String[];
+  relationships:String[];
 
   constructor(private authService: AuthService, public router: Router, private toasterService: ToasterService,private service: SharedService) {
 
     this.toasterInstance = new ToasterComponent(toasterService);
     this.service.onMenuEvent.emit(false);
     this.service.onHeaderEvent.emit(true);
+    this.schools=StudentConstants.schools;
+    this.grades=StudentConstants.grades;
+    this.relationships=StudentConstants.relationships;
+
   }
 
   ngOnInit() {
