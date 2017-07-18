@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { CustomFormsModule } from 'ng2-validation'
 
 
+
 export const firebaseConfig = {
     apiKey: "AIzaSyCh-jT1pzTDSeIPtHhLlZFFv8b1UyraE10",
     authDomain: "ssms-57461.firebaseapp.com",

@@ -5,7 +5,8 @@ import { ToasterModule, ToasterService, ToasterConfig } from 'angular2-toaster';
 import {AuthService} from '../auth.service';
 import { SharedService } from '../../shared.service';
 
-
+declare var $: any;
+declare var jQuery: any;
 
 @Component({
   selector: 'app-login',
@@ -24,12 +25,11 @@ toasterInstance: any;
     this.service.onMenuEvent.emit(false);
     this.service.onHeaderEvent.emit(false);
   }
-  ngOnInit() {
-  }
+ 
 
 login(username, password) {
     let myThis=this;
-    this.authService.signIn(username,password)
+    this.authService.signIn(username+'@gmail.com',password)
     .then(function(user){
       
        myThis.toasterInstance.ToasterSuccess('success', 'Success', 'Login Successful');
@@ -48,7 +48,44 @@ login(username, password) {
     this.router.navigate(['signup']);
   }
 
-  
+   ngOnInit() {
+        $(function() {
+          
+      // Form Validation
+      $('#form-validation').validate({
+        submit: {
+          settings: {
+            inputContainer: '.form-group',
+            errorListClass: 'form-control-error',
+            errorClass: 'has-danger'
+          }
+        }
+      });
+
+      // Show/Hide Password
+      $('.password').password({
+        eyeClass: '',
+        eyeOpenClass: 'icmn-eye',
+        eyeCloseClass: 'icmn-eye-blocked'
+      });
+
+      // Switch to fullscreen
+      $('.switch-to-fullscreen').on('click', function () {
+        $('.cat__pages__login').toggleClass('cat__pages__login--fullscreen');
+      })
+
+      // Change BG
+      $('.random-bg-image').on('click', function () {
+        var min = 1, max = 5,
+          next = Math.floor($('.random-bg-image').data('img')) + 1,
+          final = next > max ? min : next;
+
+        $('.random-bg-image').data('img', final);
+        $('.cat__pages__login').data('img', final).css('backgroundImage', 'url(assets/modules/pages/common/img/login/' + final + '.jpg)');
+      })
+
+    });
+  }
 
 }
 
