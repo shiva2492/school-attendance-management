@@ -14,6 +14,7 @@ import { ToasterModule, ToasterService, ToasterConfig } from 'angular2-toaster';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { myComponents, myDirectives, myPipes } from './primtivesList';
 import { AppComponent } from './app.component';
+import { CustomFormsModule } from 'ng2-validation'
 
 
 export const firebaseConfig = {
@@ -43,7 +44,8 @@ export const firebaseConfig = {
     FormsModule,
     ToasterModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CustomFormsModule
   ],
   providers: [AuthService,AuthGuard,SharedService],
   bootstrap: [AppComponent]

@@ -65,12 +65,7 @@ export class RegisterStudentComponent implements OnInit {
   let myThis=this;
   this.isFormSubmit=true;
 
-  // if(this.password.value!=this.confirmPassword.value){
-  //   this.isPasswordMatch=false;
-  //   return;
-  // }
-
-   if(this.studentForm.valid && this.isPasswordMatch){
+   if(this.studentForm.valid && !this.confirmPassword.errors){
     this.authService.signUpStudent(this.email.value, this.password.value)
       .then(function (user) {
         myThis.toasterInstance.ToasterSuccess('success', 'Success', 'Student is successfully registered..!');
@@ -88,7 +83,7 @@ export class RegisterStudentComponent implements OnInit {
     this.lastName = new FormControl('', Validators.required);
     this.email = new FormControl('', [
       Validators.required,
-      Validators.pattern("[^ @]*@[^ @]*")
+      Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
     ]);
     this.password = new FormControl('', [
       Validators.required,
