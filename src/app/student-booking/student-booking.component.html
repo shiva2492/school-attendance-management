@@ -1,212 +1,123 @@
-        <div class="wrapper wrapper-full-page">
-        <div class="full-page" filter-color="black" data-image="assets/login.jpeg">
-        <div class="content">
-        <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3 custompage_top">
-        <form (ngSubmit)="onStudentRegister(f)" #f="ngForm" ngNativeValidate>
-        <ul class="nav nav-tab navtab_right">
-          <li class="nav-item active border_tab_head">
-            <a class="nav-link" data-toggle="tab" href="#checkin" role="tab">In</a>
-          </li>
-           <li class="nav-item ">
-             <a class="nav-link " data-toggle="tab" href="#checkout" role="tab">
-               Out
+<div class="wrapper wrapper-full-page">
+  <div class="full-page login-page" filter-color="black" style="background-image: url(assets/img/app_back.jpeg);
+    background-size: cover;">
+    <div class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+           <form (ngSubmit)="onStudentbookin()" #f="ngForm" ngNativeValidate>
+          <ul class="nav nav-tab navtab_right">
+            <li class="nav-item active border_tab_head">
+              <a class="nav-link" data-toggle="tab" href="#checkin" role="tab">IN</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link " data-toggle="tab" href="#checkout" role="tab">
+               OUT
              </a>
-           </li>
-        </ul>
-        <div class="card card-login card_top">
-          
-        
-    <div class="tab-content"> 
-      <div id="checkout" class="card-content tab-pane fade">
-        <div class="card-header text-center title_margin_top" data-background-color="rose">
-            <h4 class="card-title">Student Book Out</h4>
+            </li>
+          </ul>
+          <div class="card card-login card_top">
+
+
+            <div class="tab-content">
+              <div id="checkout" class="card-content tab-pane fade">
+                <div class="card-header text-center title_margin_top" data-background-color="rose">
+                  <h4 class="card-title">Student Book Out</h4>
+                </div>
+
+                
+                
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-3 col-form-label"> Tag Number</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control form_input_border" name="tag_number" id="tag_number" ngModel required>
+                    </div>
+                  </div>
+                
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-3 col-form-label"> Name</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control form_input_border" name="name" id="name" ngModel required>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-3 col-form-label">  Book-In Time</label>
+                    <div class="col-sm-8">
+                     <input type="text" class="form-control form_input_border" name="book_in" id="book_in" ngModel disabled required>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-3 col-form-label">  Book-Out Time</label>
+                    <div class="col-sm-8">
+                     <input type="text" class="form-control form_input_border" name="book_in" id="book_in" ngModel disabled required>
+                    </div>
+                  </div>
+            
+                <div class="form-group row">
+                       <label for="inputEmail3" class="col-3 col-form-label">Satisfaction of class</label>
+                      <div class="col-sm-8">
+                        <select class="custom-select">
+                        <option value="Excellent" selected>Excellent</option>
+                        <option value="Good">Good</option>
+                        <option value="Satisfactory">Satisfactory</option>
+                        <option value="Unsatisfactory">Unsatisfactory</option>
+                        </select>
+                      </div>
+                </div>
+                <div class="footer text-center">
+                <button type="submit" class="btn btn-rounded btn-primary mr-2 mb-2">Book Out</button>
+              </div>
+              </div>
+
+              <div id="checkin" class="card-content tab-pane fade active in">
+                <div class="card-header text-center title_margin_top" data-background-color="rose">
+                  <h4 class="card-title">Student Book In</h4>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-3 col-form-label"> Tag Number</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control form_input_border" name="tag_number" id="tag_number" ngModel required>
+                    </div>
+                  </div>
+
+                 <div class="form-group row">
+                    <label for="inputEmail3" class="col-3 col-form-label"> Name</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control form_input_border" name="name" id="name" ngModel required>
+                    </div>
+                  </div>
+
+                
+                  <div class="form-group row">
+                     <label for="inputEmail3" class="col-3 col-form-label"> Subject</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control form_input_border" name="subject" id="subject" ngModel required>
+                    </div>
+                  </div>
+                
+
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-3 col-form-label">  Book-In Time</label>
+                    <div class="col-sm-8">
+                     <input type="text" class="form-control form_input_border" name="book_in" id="book_in" ngModel disabled required>
+                    </div>
+                  </div>
+
+                  <div class="footer text-center">
+                    <button type="submit" class="btn btn-rounded btn-primary mr-2 mb-2">Book In</button>
+                  </div>
+
+              </div>
+              
+
+            </div>
           </div>
-            <div class="input-group">
-        <span class="input-group-addon">
-        Tag Number
-        </span>    
-        <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">First Name</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="tag_number" 
-        id="tag_number" 
-       
-        ngModel
-        required
-        >
-        </div>
-        </div>
-        </div>
-
-        <div class="input-group">
-        <span class="input-group-addon">
-         Name
-        </span>  
-        <div class="form-group row">
-       
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="name" 
-        id="name" 
-   
-        ngModel
-        required
-        >
-        </div>
-        </div>
-        </div>
-
-        <div class="input-group">
-        <span class="input-group-addon">
-         Book-In Time
-        </span>  
-        <div class="form-group row">
-       
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="book_in" 
-        id="book_in" 
-   
-        ngModel
-        disabled
-        required
-        >
-        </div>
-        </div>
-        </div>
-
-        <div class="input-group">
-        <span class="input-group-addon">
-         Book-Out Time
-        </span>  
-        <div class="form-group row">
-       
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="book_in" 
-        id="book_in" 
-   
-        ngModel
-        disabled
-        required
-        >
-        </div>
-        </div>
-        </div>
-
-        <div class="input-group">
-        <span class="input-group-addon">
-        Satisfaction of class
-        </span>  
-        <div class="form-group row">
-       
-       <div class="col-sm-10">
-            <select class="custom-select">
-            <option value="Excellent" selected>Excellent</option>
-            <option value="Good">Good</option>
-            <option value="Satisfactory">Satisfactory</option>
-            <option value="Unsatisfactory">Unsatisfactory</option>
-            </select>
-        </div>
-        </div>
-        </div>
-
-       </div>   
-      
-        <div id="checkin" class="card-content tab-pane fade active in" >
-          <div class="card-header text-center title_margin_top" data-background-color="rose">
-            <h4 class="card-title">Student Book In</h4>
-          </div>
-        <div class="input-group">
-        <span class="input-group-addon">
-        Tag Number
-        </span>    
-        <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">First Name</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="tag_number" 
-        id="tag_number" 
-       
-        ngModel
-        required
-        >
-        </div>
-        </div>
-        </div>
-
-        <div class="input-group">
-        <span class="input-group-addon">
-         Name
-        </span>  
-        <div class="form-group row">
-       
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="name" 
-        id="name" 
-   
-        ngModel
-        required
-        >
-        </div>
-        </div>
-        </div>
-
-        <div class="input-group">
-        <span class="input-group-addon">
-         Subject
-        </span>  
-        <div class="form-group row">
-       
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="subject" 
-        id="subject" 
-   
-        ngModel
-        required
-        >
-        </div>
-        </div>
-        </div>
-
-        <div class="input-group">
-        <span class="input-group-addon">
-         Book-In Time
-        </span>  
-        <div class="form-group row">
-       
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="book_in" 
-        id="book_in" 
-   
-        ngModel
-        disabled
-        required
-        >
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="footer text-center">
-        <button type="submit" class="btn btn-rounded btn-primary mr-2 mb-2">Register</button>
-        </div>
-        
-        </div>
-        </div>
         </form>
+          </div>
         </div>
-        </div>
-        </div>
-        </div>
+      </div>
+    </div>
+  </div>
+</div>

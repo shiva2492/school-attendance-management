@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
+import { DatabaseService } from '../providers/database.service';
 declare var $: any;
 declare var jQuery: any;
 
@@ -10,8 +12,34 @@ declare var jQuery: any;
   styleUrls: ['./menu-left.component.css']
 })
 export class MenuLeftComponent implements OnInit {
+userData:any={};
+
+constructor(private auth: AuthService,private db: DatabaseService){
+  
+
+}
+
+ logout(){
+    
+    this.auth.signOut();
+  }
 
  ngOnInit() {
+  
+   
+   this.auth.getAuthData().subscribe((auth)=>{
+          if(auth){
+            //console.log(this.db.getList('users/'+auth.uid));
+           this.db.getObject('users/'+auth.uid)
+           .subscribe((user)=>{
+            this.db.userList = user;
+            this.userData = this.db.userList;
+             //console.log('menu user---',this.db.userList);
+          });
+          }
+            return;
+          //console.log('appcomponent---',auth);
+        });
 
     $(function(){
 

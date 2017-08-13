@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { DatabaseService } from '../providers/database.service';
 
 
 
@@ -11,20 +12,26 @@ import { AuthService } from '../auth/auth.service';
 })
 export class TopHeaderComponent implements OnInit {
 //@Output() userUpdated = new EventEmitter();
-
-  constructor(private router: Router,private auth: AuthService) {
+userData:any = {};
+  constructor(private router: Router,private auth: AuthService,private db: DatabaseService) {
 
     }
 
   ngOnInit() {
-
+    this.auth.getAuthData().subscribe((auth)=>{
+          if(auth){
+            //console.log(this.db.getList('users/'+auth.uid));
+           this.db.getObject('users/'+auth.uid)
+           .subscribe((user)=>{
+            this.db.userList = user;
+            this.userData = this.db.userList;
+            // console.log('header user---',this.db.userList);
+          });
+          }
+            return;
+          //console.log('appcomponent---',auth);
+        });
   }
 
-  // logout(){
-  // this.auth.signOut();
-  // this.userUpdated.emit();
-  // this.router.navigate(['login']);
-
-  // }
 
 }

@@ -1,4 +1,4 @@
-<nav class="cat__menu-left">
+<nav class="cat__menu-left z_index_left">
     <div class="cat__menu-left__lock cat__menu-left__action--menu-toggle">
         <div class="cat__menu-left__pin-button">
             <div><!-- --></div>
@@ -6,31 +6,136 @@
     </div>
     <div class="cat__menu-left__logo">
         <a [routerLink]="['/']">
-            <img src="assets/modules/dummy-assets/common/img/logo-inverse.png" />
+            <img  src="assets/img/2.png" />
         </a>
     </div>
     <div class="cat__menu-left__inner">
         <ul class="cat__menu-left__list cat__menu-left__list--root">
-            <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']">
-                <a href="javascript: void(0);" class="cat__menu-right__action--menu-toggle">
-                    <span class="cat__menu-left__icon icmn-cog cat__core__spin-delayed--pseudo-selector"></span>
-                    Theme Settings
+            
+            <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']" *ngIf="userData.role == 'admin'">
+                <a [routerLink]="['']">
+                    <span class="cat__menu-left__icon icmn-home"></span>
+                    
+                    Console
                 </a>
-            <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']">
+            </li>
+            <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']" *ngIf="userData.role == 'admin'">
                 <a [routerLink]="['dashboard']">
 				            <span class="cat__menu-left__icon icmn-books"></span>
                     Dashboard
                 </a>
             </li>
-            <li class="cat__menu-left__divider"><!-- --></li>
-            <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']">
-                <a [routerLink]="['']">
-                    <span class="cat__menu-left__icon icmn-home"></span>
-                    <!--<span class="badge badge-primary pull-right">New</span>-->
-                    console
+
+                        <!-- Students Nav Menu Options -->
+
+            <li class="cat__menu-left__divider" *ngIf="userData.role == 'student'"><!-- --></li>
+            
+            <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']" *ngIf="userData.role == 'student'">
+                <a [routerLink]="['calendar']" >
+                    <span class="cat__menu-left__icon fa fa-calendar-check-o"></span>
+                  
+                    Schedule
                 </a>
             </li>
-            <!--<li class="cat__menu-left__divider"></li>-->
+
+            <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']" *ngIf="userData.role == 'student'">
+                <a [routerLink]="['feedback']" >
+                    <span class="cat__menu-left__icon fa fa-calendar-check-o"></span>
+                    <!--<span class="badge badge-primary pull-right">New</span>-->
+                    Feedback
+                </a>
+            </li>
+
+            <!-- Teachers Nav Menu Options -->
+
+
+             <li class="cat__menu-left__divider" *ngIf="userData.role == 'teacher'"><!-- --></li>
+            
+             <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']" *ngIf="userData.role == 'teacher'">
+                <a [routerLink]="['examCalender']" >
+                    <span class="cat__menu-left__icon fa fa-calendar-check-o"></span>
+                    <!--<span class="badge badge-primary pull-right">New</span>-->
+                    Exam Calendar
+                </a>
+            </li>
+
+
+            <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']" *ngIf="userData.role == 'teacher'">
+                <a [routerLink]="['calendar']" >
+                    <span class="cat__menu-left__icon fa fa-calendar-check-o"></span>
+                    <!--<span class="badge badge-primary pull-right">New</span>-->
+                    Reports
+                </a>
+            </li>
+
+            <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']" *ngIf="userData.role == 'teacher'">
+                <a [routerLink]="['dailyStudent']" >
+                    <span class="cat__menu-left__icon fa fa-calendar-check-o"></span>
+                    <!--<span class="badge badge-primary pull-right">New</span>-->
+                    Daily Students
+                </a>
+            </li>
+
+             <li class="cat__menu-left__divider" *ngIf="userData.role == 'teacher'"><!-- --></li>
+            
+            <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']" *ngIf="userData.role == 'teacher'">
+                <a [routerLink]="['calendar']" >
+                    <span class="cat__menu-left__icon fa fa-calendar-check-o"></span>
+                    <!--<span class="badge badge-primary pull-right">New</span>-->
+                    Guideline
+                </a>
+            </li>
+
+            <li class="cat__menu-left__item cat__menu-left__submenu" [routerLinkActive]="['cat__menu-left__item--active']" [hidden]="userData.role != 'teacher'">
+                <a href="javascript: void(0);">
+                    <span class="cat__menu-left__icon fa fa-calendar-check-o"></span>
+                    <!--<span class="badge badge-primary pull-right">New</span>-->
+                    Notices
+                </a>
+                <ul class="cat__menu-left__list">
+                            <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']">
+                                <a [routerLink]="['pages/login-alpha']">
+                                    <span class="cat__menu-left__icon">LA</span>
+                                    Negative Leaves
+                                </a>
+                            </li>
+                            <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']">
+                                <a [routerLink]="['newLeaveSystem']">
+                                    <span class="cat__menu-left__icon">LA</span>
+                                    New Leave System
+                                </a>
+                            </li>
+                            <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']">
+                                <a [routerLink]="['pages/login-alpha']">
+                                    <span class="cat__menu-left__icon">LA</span>
+                                    Insurance
+                                </a>
+                            </li>
+                            <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']">
+                                <a [routerLink]="['pages/login-alpha']">
+                                    <span class="cat__menu-left__icon">LA</span>
+                                    Remarks Template
+                                </a>
+                            </li>
+                            <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']">
+                                <a [routerLink]="['pages/login-alpha']">
+                                    <span class="cat__menu-left__icon">LA</span>
+                                    Cleanliness
+                                </a>
+                            </li>
+                </ul>            
+            </li>
+
+
+            <li class="cat__menu-left__divider"><!-- --></li>
+
+            <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']">
+                <a [routerLink]="['login']" (click)="logout()">
+                    <span class="cat__menu-left__icon fa fa-caret-right"></span>
+                    <!--<span class="badge badge-primary pull-right">New</span>-->
+                    Logout
+                </a>
+            </li>
              
         </ul>
     </div>

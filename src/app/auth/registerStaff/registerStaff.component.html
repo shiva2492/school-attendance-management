@@ -1,322 +1,151 @@
-        <div class="wrapper wrapper-full-page">
-        <div class="full-page login-page" filter-color="black" data-image="assets/login.jpeg">
-        <div class="content">
-        <div class="container">
+<div class="wrapper wrapper-full-page">
+  <div class="full-page login-page" filter-color="black" style="background-image: url(assets/img/app_back.jpeg);
+    background-size: cover;">
+    <div class="content">
+      <div class="container">
         <div class="row">
-        <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
-        <form (ngSubmit)="onStaffRegister(f)" #f="ngForm" ngNativeValidate>
-        <div class="card card-login">
-        <div class="card-header text-center" data-background-color="rose">
-        <h4 class="card-title">Staff Register</h4>
-        </div>
-        <div class="card-content">
+          <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+            <form (ngSubmit)="onStaffRegister()" [formGroup]="staffForm" novalidate>
+              <div class="card card-login">
+                <div class="card-header text-center" data-background-color="rose">
+                  <h4 class="card-title">Staff Register</h4>
+                </div>
+                <div class="card-content card_content_left_margin">
 
-        <div class="input-group">
-        <span class="input-group-addon">
-        First Name
-        </span>    
-        <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">First Name</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="first_name" 
-        id="first_name" 
-         
-        ngModel
-        required
-        >
-        </div>
-        </div>
-        </div>
+                  <h4>Account Details</h4>
+                  <div class="form-group row">
+                    <label for="example-text-input" class="col-2 col-form-label">Username</label>
+                    <div class="col-10">
+                      <input type="text" class="form-control form_input_border" name="username" id="username" formControlName="username" placeholder="Username" required>
+                    </div>
+                  </div>
 
-        <div class="input-group">
-        <span class="input-group-addon">
-         Last Name
-        </span>  
-        <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Last Name</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="first_name" 
-        id="first_name" 
-       
-        ngModel
-        required
-        >
-        </div>
-        </div>
-        </div>
+                   <div class="form-group row">
+                    <label for="exampleInputPassword1" class="col-2 col-form-label">Password</label>
+                    <div class="col-4">
+                    <input type="password" class="form-control form_input_border" id="exampleInputPassword1" formControlName="password" placeholder="Password">
+                    </div>
+                    <div class="red-alert" *ngIf="isFormSubmit && password.errors">
+                        <p *ngIf="password.errors.required">Password is required</p>
+                        <p *ngIf="password.errors.minlength">Password must be 8 characters long, we need another {{password.errors.minlength.requiredLength -
+                          password.errors.minlength.actualLength}} characters </p>
+                      </div>
+                    <label for="exampleInputPassword1" class="col-2 col-form-label">Repeat Password</label>
+                    <div class="col-4">
+                    <input type="password" class="form-control form_input_border" id="exampleInputPassword1" placeholder="Confirm Password" formControlName="confirmPassword">
+                    </div>
+                  </div>
 
-        <div class="input-group">
-        <span class="input-group-addon">
-        Gender
-        </span>  
-        <fieldset class="form-group row">
-      <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Gender</label>-->
-        <div class="col-sm-10">
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="gridRadios3" id="gridRadios3" value="option1" checked>
-            Male
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">  
-            <input type="radio" class="form-check-input" name="gridRadios3" id="gridRadios3" value="option2" >
-            Female
-          </label>
-        </div> 
-        </div>
-        </fieldset>
-        </div>
 
-         <div class="input-group">
-        <span class="input-group-addon">
-        NRIC/FIN
-        </span> 
-        <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">NRIC/FIN</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="first_name" 
-        id="first_name" 
-        
-        ngModel
-        required
-        >
-        </div>
-        </div>
-         </div>
 
-          <div class="input-group">
-        <span class="input-group-addon">
-        Email
-        </span> 
-        <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Email</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="first_name" 
-        id="first_name" 
-        
-        ngModel
-        required
-        >
-        </div>
-        </div>
+                    <!-- account details finished-->
+
+
+                    <h4>Staff Particulars</h4>
+                    
+                    <div class="form-group row">
+                    <label for="example-text-input" class="col-2 col-form-label">First Name</label>
+                    <div class="col-4">
+                      <input type="text" class="form-control form_input_border" name="first_name" id="first_name" formControlName="firstname" placeholder="First Name" required>
+                    </div>
+                    <div *ngIf="isFormSubmit && firstname.errors">
+                        <p class="red-alert" *ngIf="firstname.errors.required">First Name is required</p>
+                      </div>
+                    <label for="example-text-input" class="col-2 col-form-label">Last Name</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control form_input_border" name="last_name" id="last_name" formControlName="lastname" placeholder="Last Name" required>
+                        </div>
+                         <div *ngIf="isFormSubmit && lastname.errors">
+                        <p class="red-alert" *ngIf="lastname.errors.required">Last Name is required</p>
+                      </div>
+                    </div>
+
+                  <div class="form-group row">
+                   <legend class="col-form-legend col-sm-2">Gender</legend>
+                    <div class="col-4">
+                   <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="gender" id="gridRadios3" formControlName="gender" value="Male" checked>
+                            Male
+                      </label>
+                    </div>
+                     <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="gender" id="gridRadios3" value="Female" formControlName="gender">
+                            Female
+                      </label>
+                    </div>
+                    </div>
+                    
+                      <label for="example-text-input" class="col-2 col-form-label">NRIC/FIN</label>
+                    <div class="col-4">
+                      <input type="text" class="form-control form_input_border" name="nric" id="nric" formControlName="NRIC" placeholder="NRIC/FIN" required>
+                    </div>
+                     
+                  </div>
+
+                  <div class="form-group row">
+                      <label for="inputEmail3" class="col-2 col-form-label">Status</label>
+                      <div class="col-sm-4">
+                        <select class="custom-select" formControlName="status">
+                        <option value="CIT" selected>CIT</option>
+                        <option value="PR"> PR</option>
+                        <option value="EP">EP</option>
+                        <option value="SPASS">SPASS</option>
+                        <option value="SP">SP</option>
+                        <option value="LOC">LOC</option>
+                        <option value="PRC/WP">PRC/WP</option>
+                        </select>
+                      </div>
+                      <label for="inputEmail3" class="col-2 col-form-label">Job-Type</label>
+                      <div class="col-sm-4">
+                      <select class="custom-select" formControlName="jobtype"> 
+                      <option value="Fulltime(LT)" selected>Fulltime(LT)</option>
+                      <option value="Fulltime(ST)">Fulltime(ST)</option>
+                      <option value="Parttime">Parttime</option>
+                      <option value="Weekend">Weekend</option>
+                      </select>
+                      </div>
+                    </div>
+              
+                    <div class="form-group row">
+                      <label for="inputEmail3"class="col-2 col-form-label">Email</label>
+                      <div class="col-sm-4">
+                        <input type="text" class="form-control form_input_border" name="email" id="email" formControlName="email" required>
+                      </div>
+                       <label for="inputEmail3" class="col-2 col-form-label">Contact number</label>
+                      <div class="col-sm-4">
+                        <input type="text" class="form-control form_input_border" name="contact_number" id="contact_number" formControlName="contactnumber" required>
+                      </div>
+                    </div>
+
+                    <!--Staff particulars end-->
+
+
+                  <h4>Bank Details</h4>
+
+                  
+                    <div class="form-group row">
+                      <label for="inputEmail3" class="col-2 col-form-label">Bank Name</label>
+                      <div class="col-sm-4">
+                        <input type="text" class="form-control form_input_border" name="bank_name" id="bank_name" formControlName="bankname" required>
+                      </div>
+                      <label for="inputEmail3" class="col-2 col-form-label">Bank Account Number</label>
+                      <div class="col-sm-4">
+                        <input type="text" class="form-control form_input_border" name="bank_account_number" id="bank_account_number" formControlName="bankaccountnumber" required>
+                      </div>
+                    </div>
+                  
+
+                  <div class="footer text-center">
+                    <button type="submit" class="btn btn-rounded btn-primary mr-2 mb-2">Register</button>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
-
-           <div class="input-group">
-        <span class="input-group-addon">
-        Contact number
-        </span> 
-        <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Contact number</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="first_name" 
-        id="first_name" 
-       
-        ngModel
-        required
-        >
         </div>
-        </div>
-           </div>
-
-       <div class="input-group">
-        <span class="input-group-addon">
-        Status
-        </span>     
-       <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Status</label>-->
-        <div class="col-sm-10">
-            <select class="custom-select">
-            <option value="CIT" selected>CIT</option>
-            <option value="1"> PR</option>
-            <option value="2">EP</option>
-            <option value="3">SPASS</option>
-            <option value="3">SP</option>
-            <option value="3">LOC</option>
-            <option value="3">PRC/WP</option>
-            </select>
-        </div>
-        </div> 
-       </div>
-
-       <div class="input-group">
-        <span class="input-group-addon">
-        Job-Type
-        </span> 
-       <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Job-Type</label>-->
-        <div class="col-sm-10">
-            <select class="custom-select">
-            <option value="Fulltime(LT)" selected>Fulltime(LT)</option>
-            <option value="1">Fulltime(ST)</option>
-            <option value="2">Parttime</option>
-            <option value="3">Weekend</option>
-            </select>
-        </div>
-        </div>
-       </div>
-
-       <div class="input-group">
-        <span class="input-group-addon">
-        Bank Name
-        </span> 
-         <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Bank Name</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="first_name" 
-        id="first_name" 
-   
-        ngModel
-        required
-        >
-        </div>
-        </div>
-       </div>
-
-
-       <div class="input-group">
-        <span class="input-group-addon">
-        Bank Account Number
-        </span> 
-         <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Bank Account Number</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="first_name" 
-        id="first_name" 
-       
-        ngModel
-        required
-        >
-        </div>
-        </div>
-       </div>
-
-       <div class="input-group">
-        <span class="input-group-addon">
-        Username
-        </span> 
-         <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Username</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="first_name" 
-        id="first_name" 
-         
-        ngModel
-        required
-        >
-        </div>
-        </div>
-       </div>
-
-        <div class="input-group">
-        <span class="input-group-addon">
-        Password
-        </span> 
-         <div class="form-group row">
-        <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Password</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="first_name" 
-        id="first_name" 
-       
-        ngModel
-        required
-        >
-        </div>
-        </div>
-        </div>
-
-        <div class="input-group">
-        <span class="input-group-addon">
-        Repeat Password
-        </span> 
-         <div class="form-group row">
-            <!--<label for="inputEmail3" class="col-sm-6 col-form-label">Repeat Password</label>-->
-        <div class="col-sm-10">
-        <input type="text"
-        class="form-control" 
-        name="first_name" 
-        id="first_name" 
-     
-        ngModel
-        required
-        >
-        </div>
-        </div>
-        </div>
-        <!--<div class="form-group row">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Last Name</label>
-        <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown button
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-        </div>
-        </div>-->
-
-        <!--<div class="input-group">
-        <span class="input-group-addon">
-        email
-        </span>
-        <div class="form-group label-floating is-empty">
-        <input type="email" class="form-control" name="email" id="email" placeholder="Email" ngModel required>
-        <span class="material-input"></span></div>
-        </div>
-        <div class="input-group">
-        <span class="input-group-addon">
-        <i class="material-icons">lock_outline</i>
-        </span>
-        <div class="form-group label-floating is-empty">
-        <input type="password" class="form-control" name="password" id="password" placeholder="Password" ngModel>
-        <span class="material-input"></span></div>
-        </div>
-        <div class="input-group">
-        <span class="input-group-addon">
-        <i class="material-icons">lock_outline</i>
-        </span>
-        <div class="form-group label-floating is-empty">
-        <input type="password" class="form-control" name="password" id="password" placeholder="Confirm Password" ngModel>
-        <span class="material-input"></span></div>
-        </div>
-        </div>-->
-        <div class="input-group">
-        <span class="input-group-addon">
-        <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" value="">
-        I agree to the terms and conditions
-        </label>
-        </span>
-        </div>
-        <div class="footer text-center">
-        <button type="submit" class="btn btn-rounded btn-primary mr-2 mb-2">Register</button>
-        </div>
-        </div>
-        </div>
-        </form>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
+      </div>
+    </div>
+  </div>
+</div>

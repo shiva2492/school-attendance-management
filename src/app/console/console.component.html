@@ -1,5 +1,9 @@
-<div class="container">
-<div class="row card_top_margin">
+<div class="wrapper wrapper-full-page">
+    <div class="full-page login-page" filter-color="black" style="background-image: url(assets/img/app_back.jpeg);
+    background-size: cover;">
+    <div class="content">
+<div class="container"  >
+<div class="row ">
             <div class="col-lg-4 col-md-6">
                 <a [routerLink]="['registerStudent']">
                 <div class="card card-product" data-count="7" >
@@ -24,7 +28,7 @@
                             </button>-->
                         </div>
                         <h4 class="card-title">
-                            <a [routerLink]="['registerStudent']">Register Student</a>
+                            <a [routerLink]="['registerStudent']">Student Register</a>
                         </h4>
                         <!--<div class="card-description">
                             Dummy description....
@@ -65,7 +69,7 @@
                             </button>
                         </div>-->
                         <h4 class="card-title">
-                            <a [routerLink]="['registerStaff']">Register Staff</a>
+                            <a [routerLink]="['registerStaff']">Staff Register</a>
                         </h4>
                         <!--<div class="card-description">
                             Dummy Description...
@@ -83,9 +87,10 @@
                 </a>
             </div>
             <div class="col-lg-4 col-md-6">
+                 <a [routerLink]="['studentBooking']">
                 <div class="card card-product" data-count="2">
                     <div class="card-image" data-header-animation="true">
-                        <a href="#pablo">
+                        <a [routerLink]="['studentBooking']">
                             <img class="img" src="../../assets/img/card-1.jpeg">
                         </a>
                     </div>
@@ -105,7 +110,7 @@
                             </button>
                         </div>-->
                         <h4 class="card-title">
-                            <a [routerLink]="['studentBooking']">Students Book In/Out</a>
+                            <a [routerLink]="['studentBooking']">Students Attendance</a>
                         </h4>
                         <!--<div class="card-description">
                             Dummy Description...
@@ -120,10 +125,12 @@
                         </div>
                     </div> -->
                 </div>
+                 </a>
             </div>
         </div>
         <div class="row card_top_margin">
             <div class="col-lg-4 col-md-6">
+                 <a [routerLink]="['staffBooking']">
                 <div class="card card-product" data-count="7">
                     <div class="card-image" data-header-animation="true">
                         <a [routerLink]="['staffBooking']">
@@ -146,7 +153,7 @@
                             </button>
                         </div>-->
                         <h4 class="card-title">
-                            <a [routerLink]="['staffBooking']">Staff Book In/Out</a>
+                            <a [routerLink]="['staffBooking']">Staff Attendance</a>
                         </h4>
                         <!--<div class="card-description">
                             Dummy description....
@@ -161,13 +168,14 @@
                         </div>
                     </div> -->
                 </div>
-
+                 </a>
             </div>
 
             <div class="col-lg-4 col-md-6">
+                 <a [routerLink]="['livefeedback']">
                 <div class="card card-product" data-count="7">
                     <div class="card-image" data-header-animation="true">
-                        <a href="#pablo">
+                        <a [routerLink]="['livefeedback']">
                             <img class="img" src="../../assets/img/card-2.jpeg">
                         </a>
                     </div>
@@ -187,7 +195,7 @@
                             </button>
                         </div>-->
                         <h4 class="card-title">
-                            <a href="#pablo">Live Feedback</a>
+                            <a [routerLink]="['livefeedback']">Live Feedback</a>
                         </h4>
                         <!--<div class="card-description">
                             Dummy description....
@@ -202,8 +210,10 @@
                         </div>
                     </div> -->
                 </div>
+                 </a>
         </div>
         <div class="col-lg-4 col-md-6">
+            
                 <div class="card card-product" data-count="7">
                     <div class="card-image" data-header-animation="true">
                         <a href="#pablo">
@@ -247,4 +257,8 @@
 
 </div>
 </div>
+    </div>
+</div>
+</div>
+
 

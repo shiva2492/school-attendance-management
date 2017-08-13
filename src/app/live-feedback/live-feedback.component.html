@@ -1,0 +1,78 @@
+<div class="wrapper wrapper-full-page" filter-color="black" style="background-image: url(assets/img/app_back.jpeg);
+    background-size: cover;">
+  <div class="full-page login-page" >
+    <div class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+             <form (ngSubmit)="onLiveFeedback()" #f="ngForm" ngNativeValidate>
+
+                <div class="card card-login">
+                <div class="card-header text-center" data-background-color="rose">
+                  <h4 class="card-title">Live Feedback</h4>
+                </div>
+                <div class="card-content card_content_left_margin">
+
+                  
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-3 col-form-label"> Tag Number</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control form_input_border" name="tag_number" id="tag_number" ngModel required>
+                    </div>
+                  </div>
+
+                   <div class="form-group row">
+                    <label for="inputEmail3" class="col-3 col-form-label"> Name</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control form_input_border" name="name" id="name" ngModel required>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-3 col-form-label">Subject</label>
+                    
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control form_input_border" name="name" id="name" ngModel required>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-3 col-form-label">In-charge</label>
+                    
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control form_input_border" name="name" id="name" ngModel required>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                   <legend class="col-form-legend col-sm-3">How is the lesson?</legend>
+                    <div class="col-4">
+                   <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="gridRadios3" id="gridRadios3" value="okay" checked>
+                            Okay
+                      </label>
+                    </div>
+                     <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="gridRadios3" id="gridRadios3" value="not_okay" >
+                            Not Okay
+                      </label>
+                    </div>
+                    </div>
+                  </div>
+
+                    <div class="footer text-center">
+                    <button type="submit" class="btn btn-rounded btn-primary mr-2 mb-2">Submit</button>
+                  </div>
+                </div>
+                </div> 
+
+        </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

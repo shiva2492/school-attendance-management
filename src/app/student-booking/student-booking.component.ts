@@ -12,4 +12,8 @@ export class StudentBookingComponent implements OnInit {
   ngOnInit() {
   }
 
+  onStudentbookin(){
+    
+  }
+
 }

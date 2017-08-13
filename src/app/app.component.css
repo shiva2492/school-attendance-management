@@ -1,3 +1,10 @@
 .header_margin{
     margin-top: 3.95em;
 }
+
+.no_margin{
+    margin-left: 0px;
+}
+.margin_left_extra{
+        margin-left: 0.5em;
+}

@@ -14,6 +14,10 @@ private searchData = ['red', 'green', 'blue', 'cyan', 'magenta', 'yellow', 'blac
 
   ngOnInit() {
   }
+
+  onStaffBookIn(){
+    
+  }
   // onSelected(item: CompleterItem) {
   //   this.selectedColor = item? item.title: "";
     

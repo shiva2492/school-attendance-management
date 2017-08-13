@@ -1,0 +1,58 @@
+<!-- START: tables/datatables -->
+<section class="card" style="margin-top: 4rem;">
+    <div class="card-header">
+        <span class="cat__core__title">
+            <strong>Daily Students</strong>
+        </span>
+    </div>
+    <div class="card-block">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-5">
+                    <table class="table table-striped" class="table table-hover nowrap" [mfData]="studentsList" #mf="mfDataTable" [mfRowsOnPage]="5" width="100%">
+                      <thead>
+                      <tr>
+                          <th >
+                              <mfDefaultSorter by="firstname">First Name</mfDefaultSorter>
+                          </th>
+                          <th >
+                              <mfDefaultSorter by="lastname">Last Name</mfDefaultSorter>
+                          </th>
+                          <th >
+                              <mfDefaultSorter by="username">User Name</mfDefaultSorter>
+                          </th>
+                          <th >
+                              <mfDefaultSorter by="email">Email</mfDefaultSorter>
+                          </th>
+                          <th >
+                              <mfDefaultSorter by="grade">Grade</mfDefaultSorter>
+                          </th>
+                          <th >
+                              <mfDefaultSorter by="schoolname">School Name</mfDefaultSorter>
+                          </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let item of mf.data">
+                          <td>{{item.firstname}}</td>
+                          <td>{{item.lastnamename}}</td>
+                          <td>{{item.usernamename}}</td>
+                          <td>{{item.email}}</td>
+                          <td>{{item.grade}}</td>
+                          <td>{{item.schoolname}}</td>
+                      </tr>
+                      </tbody>
+                      <tfoot>
+                      <tr>
+                          <td colspan="4">
+                              <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                          </td>
+                      </tr>
+                      </tfoot>
+                  </table>
+                </div>
+            </div>
+        </div>
+      </div>
+</section>
+<!-- END: tables/datatables -->

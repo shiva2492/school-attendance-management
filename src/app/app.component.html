@@ -1,7 +1,7 @@
 <app-top-header *ngIf="Currentroute" ></app-top-header>
 <app-menu-left *ngIf="isAuthinticated"></app-menu-left>
-<div class="cat__content">
+<div style="padding:0" class="cat__content" [ngClass]="isAuthinticated==false ? 'no_margin' : ' '">
     <!-- routing here -->
-    <toaster-container [toasterconfig]="toasterConfig"></toaster-container>
+    <toaster-container ></toaster-container>
     <router-outlet ></router-outlet>
 </div>

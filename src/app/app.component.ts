@@ -4,7 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ToasterComponent } from '../app/util/toaster/toaster.component';
 import { AuthService } from './auth/auth.service';
-import { SharedService } from './shared.service';
+import { SharedService } from './providers/shared.service';
+import { DatabaseService } from './providers/database.service';
 import 'rxjs/add/operator/map';
 
 
@@ -17,14 +18,11 @@ export class AppComponent implements OnInit {
  
    @ViewChild(ToasterComponent) toaster: ToasterComponent;  
    
-   public isAuthinticated: boolean;
+   public isAuthinticated: boolean = false;
    public Currentroute: boolean = false;
-    constructor(private auth: AuthService,private af:AngularFireAuth,private service: SharedService){
-    //setInterval( () => { console.log(this.toaster.getToasterConfig()) },2000);
-   // this.auth.initializeFirebase();
+   
+    constructor(private auth: AuthService,private service: SharedService,private db :DatabaseService){
 
-      
-       
       // console.log('authenticated---',this.isAuthinticated)
       this.service.onMenuEvent.subscribe(
       (onMenu) => {
@@ -43,26 +41,29 @@ export class AppComponent implements OnInit {
    }
 
   ngOnInit(){
+
     if(window.location.pathname != '/login')
      this.Currentroute = true; 
 
-    console.log('app constructor----',this.Currentroute);
-    this.af.authState.map(auth => {
-            if (!(auth)) {
-              console.log('app authstate false----');              
-            this.isAuthinticated = false;
-          } else {
-            console.log('app authstate false----');
-            this.isAuthinticated = true;
-            }
+   // console.log('app constructor----',this.Currentroute);
+    this.auth.getAuthData().subscribe((auth)=>{
+          if(auth){
+            //console.log(this.db.getList('users/'+auth.uid));
+           this.db.getList('users/'+auth.uid)
+           .subscribe((user)=>{
+            this.db.userList = user;
+            //console.log(this.db.userList);
+          });
+          }
+            return;
+          //console.log('appcomponent---',auth);
         });
+
+
+    
+  
+    
   }
 
-  logoutHappened(){
-    this.auth.signOut();
-    this.isAuthinticated = false;
-    this.Currentroute = false;
-    console.log('logout'); 
-  }
 
 }
